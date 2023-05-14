@@ -44,19 +44,30 @@ namespace DataStructures
                 temp = temp.next;
             }
         }
-        public void AddInReverseOrder(int data)
+        public void InsertAtParticularPosition(int position, int data)
         {
-            Node newNode = new Node(data);
+            Node newestNode = new Node(data);
             if (this.head == null)
             {
-                this.head = newNode;
+                this.head = newestNode;
             }
-            else
+            if (position == 0)
             {
-                Node temp = this.head;
-                head = newNode;
-                head.next = temp;
+                newestNode.next = this.head;
+                this.head = newestNode;
+                return;
             }
+            Node previous = null;
+            Node current = this.head;
+            int count = 0;
+            while (current != null && count < position)
+            {
+                previous = current;
+                current = current.next;
+                count++;
+            }
+            newestNode.next = previous.next;
+            previous.next = newestNode;
         }
     }
 }
