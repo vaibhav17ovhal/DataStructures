@@ -44,30 +44,14 @@ namespace DataStructures
                 temp = temp.next;
             }
         }
-        public void InsertAtParticularPosition(int position, int data)
+        public void RemoveFirstNode()
         {
-            Node newestNode = new Node(data);
             if (this.head == null)
             {
-                this.head = newestNode;
+                Console.WriteLine("Linked List is empty");
             }
-            if (position == 0)
-            {
-                newestNode.next = this.head;
-                this.head = newestNode;
-                return;
-            }
-            Node previous = null;
-            Node current = this.head;
-            int count = 0;
-            while (current != null && count < position)
-            {
-                previous = current;
-                current = current.next;
-                count++;
-            }
-            newestNode.next = previous.next;
-            previous.next = newestNode;
+            this.head = this.head.next;
         }
+
     }
 }
