@@ -13,7 +13,7 @@ namespace DataStructures
         public void Add(int data)
         {
             Node node = new Node(data);
-            
+
             if (this.head == null)
             {
                 this.head = node;
@@ -21,7 +21,7 @@ namespace DataStructures
             else
             {
                 Node temp = head;
-                while(temp.next != null)
+                while (temp.next != null)
                 {
                     temp = temp.next;
                 }
@@ -44,22 +44,19 @@ namespace DataStructures
                 temp = temp.next;
             }
         }
-        public void RemoveLastNode()
+        public void Search(int value)
         {
-            if (head == null)
+            Node node = this.head;
+            int count = 0;
+            while (node != null)
             {
-                Console.WriteLine("Linked List is empty");
+                if (node.data.Equals(value))
+                {
+                    Console.WriteLine(count + "th position");
+                }
+                node = node.next;
+                count++;
             }
-            if (head.next == null)
-            {
-                this.head = null;
-            }
-            Node NewNode = head;
-            while (NewNode.next.next != null)
-            {
-                NewNode = NewNode.next;
-            }
-            NewNode.next = null;
         }
     }
 }

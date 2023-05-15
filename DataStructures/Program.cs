@@ -15,8 +15,9 @@ namespace DataStructures
             list.Add(30);
             list.Add(70);
 
-            list.RemoveLastNode();
             list.Display();
+
+            list.Search(30);
         }
     }
 }
