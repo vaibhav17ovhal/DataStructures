@@ -17,7 +17,14 @@ namespace DataStructures
 
             list.Display();
 
-            list.Search(30);
+
+            int position = list.Search(30);
+            list.InsertAtParticularPosition(position + 1, 40);
+            list.Display();
+            Console.WriteLine();
+            int searchDelete = list.Search(40);
+            list.DeleteNodeAtParticularPosition(searchDelete);
+            list.Display();
         }
     }
 }

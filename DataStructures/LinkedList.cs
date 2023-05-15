@@ -44,7 +44,33 @@ namespace DataStructures
                 temp = temp.next;
             }
         }
-        public void Search(int value)
+        public void InsertAtParticularPosition(int position, int data)
+        {
+            Node newestNode = new Node(data);
+            if (this.head == null)
+            {
+                this.head = newestNode;
+            }
+            if (position == 0)
+            {
+                newestNode.next = this.head;
+                this.head = newestNode;
+                return;
+            }
+            Node previous = null;
+            Node current = this.head;
+            int count = 0;
+            while (current != null && count < position)
+            {
+                previous = current;
+                current = current.next;
+                count++;
+            }
+            newestNode.next = previous.next;
+            previous.next = newestNode;
+        }
+
+        public int Search(int value)
         {
             Node node = this.head;
             int count = 0;
@@ -57,6 +83,32 @@ namespace DataStructures
                 node = node.next;
                 count++;
             }
+            return count;
+        }
+        public void DeleteNodeAtParticularPosition(int position)
+        {
+            if (this.head == null)
+            {
+                Console.WriteLine("Linked List is empty");
+                return;
+            }
+            Node temp = this.head;
+            if (position == 0)
+            {
+                this.head = temp.next;
+                return;
+            }
+            for (int i = 0; temp != null && i < position - 1; i++)
+            {
+                temp = temp.next;
+            }
+            if (temp == null)
+            {
+                return;
+            }
+            Node next = temp.next.next;
+            temp.next = next;
+            //Size();
         }
     }
 }
